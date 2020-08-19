@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+"http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+	<!-- List of forms in application -->
+	<form-beans>
+		<form-bean name="issueDetailsForm"
+			type="com.montran.form.IssueDetailsForm" />
+		<form-bean name="addIssueBookForm"
+		type="com.montran.form.AddIssueBookForm"></form-bean>
+	</form-beans>
+
+	<!-- List of action in application -->
+	<action-mappings>
+		<action path="/bookIssueDetailsAction"
+			type="com.montran.action.BookIssueDetailsAction">
+			<forward name="success" path="/allBookDetails.jsp" />
+		</action>
+
+	<action path="/newBookIssue"
+			type="com.montran.action.NewBookIssueAction" name="addIssueBookForm">
+			<forward name="book" path="/addBookDetails.jsp" />
+			<forward name="member" path="/addBookDetails.jsp" />
+			<forward name="success" path="/bookIssueDetailsAction.do" />
+		</action>
+		
+	<action path="/deleteIssueBook"
+			type="com.montran.action.DeleteBookIssueAction" name="addIssueBookForm">
+			<forward name="success" path="/allBookDetails.jsp" />
+		</action>
+		
+<!-- 		<action path="/issueBook" -->
+<!-- 			type="com.montran.action.IssueNewBookAction" name="issueDetailsForm"> -->
+<!-- 			<forward name="success" path="/issueBook.jsp" /> -->
+<!-- 		</action> -->
+
+		<action path="/updateBook"
+			type="com.montran.action.UpdateBookIssue" name="addIssueBookForm">
+			<forward name="success" path="/update.jsp" />
+		</action>
+
+		
+	</action-mappings>
+    <message-resources parameter="Common" />
+	<message-resources parameter="messages" />
+
+</struts-config>
